@@ -7,30 +7,31 @@ namespace LgSoftwareDeveloperAssignment.PresentationLayer
     public class DevicesController : Controller
     {
         private readonly IUnitOfWork uk;
-        private long MaxFileSize = 1048576;
         public DevicesController(IUnitOfWork _uk)
         {
             uk = _uk;
         }
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var device = uk.Devices.GetAll();
+            var device = await uk.Devices.GetAll();
             return View(device);
         }
         [HttpGet]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var device = uk.Devices.GetById(id);
+            var device =await uk.Devices.GetById(id);
             return View(device);
         }
         [HttpGet]
-        public IActionResult Add()
+        public async Task<IActionResult> Add()
         {
-            return View();
+            var devices =await uk.Devices.GetAll();
+            ViewBag.dvice = devices;
+            return View(devices);
         }
         [HttpPost]
-        public IActionResult Add(DeviceCreateModel model)
+        public async Task<IActionResult> Add(DeviceCreateModel model)
         {
             if (ModelState.IsValid == false)
             {
@@ -44,7 +45,7 @@ namespace LgSoftwareDeveloperAssignment.PresentationLayer
             }
             else
             {
-                uk.Devices.Add(
+              await uk.Devices.Add(
                     new Device {
                         DeviceName = model.DeviceName,
                         DeviceAcquisitionDate =model.DeviceAcquisitionDate,
@@ -74,7 +75,7 @@ namespace LgSoftwareDeveloperAssignment.PresentationLayer
             return View(devices);
         }
         [HttpPost]
-        public  IActionResult Update(DeviceCreateModel model)
+        public async Task <IActionResult> Update(DeviceCreateModel model)
         {
             if (ModelState.IsValid == false)
             {
@@ -88,7 +89,7 @@ namespace LgSoftwareDeveloperAssignment.PresentationLayer
             }
             else
             {
-                uk.Devices.Update(
+              await uk.Devices.Update(
                     new Device
                     {
                         DeviceName = model.DeviceName,
@@ -111,7 +112,7 @@ namespace LgSoftwareDeveloperAssignment.PresentationLayer
             }
         }
         [HttpGet]
-        public IActionResult ConfirmDelete(int id, string Name)
+        public async Task<IActionResult> ConfirmDelete(int id, string Name)
         {
             dynamic device = new ExpandoObject();
             device.Name = Name;

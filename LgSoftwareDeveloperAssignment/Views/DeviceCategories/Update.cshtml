@@ -1,5 +1,37 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿<form class="row g-3 needs-validation" novalidate>
+    <div class="col-md-12">
+        <label for="validationCustom01" class="form-label">Name</label>
+        <input type="text" class="form-control" id="validationCustom01" value="" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="col-md-12">
+        <label for="validationCustom02" class="form-label">Color</label>
+        <input type="text" class="form-control" id="validationCustom02" value="" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="col-md-12">
+        <label for="validationCustomUsername" class="form-label">Brand</label>
+        <div class="input-group has-validation">
+            <span class="input-group-text" id="inputGroupPrepend"></span>
+            <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+            <div class="invalid-feedback">
+                Please choose a username.
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <label for="validationCustom03" class="form-label">Display</label>
+        <input type="text" class="form-control" id="validationCustom03" required>
+        <div class="invalid-feedback">
+            Please provide a valid city.
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary mt-3" type="submit" asp-action="Index" asp-controller="Home">Update</button>
+        </div>
+    </div>
+
+</form>

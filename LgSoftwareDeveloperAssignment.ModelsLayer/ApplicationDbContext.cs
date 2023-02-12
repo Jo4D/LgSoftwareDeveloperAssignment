@@ -1,8 +1,7 @@
 ﻿using LgSoftwareDeveloperAssignment.BusinessLayer;
-using LgSoftwareDeveloperAssignment.DataLayer;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-namespace LgSoftwareDeveloperAssignment.ModelsLayer
+namespace LgSoftwareDeveloperAssignment.DataLayer
 {
     public class ApplicationDbContext:IdentityDbContext<ApplicationUser>
     {

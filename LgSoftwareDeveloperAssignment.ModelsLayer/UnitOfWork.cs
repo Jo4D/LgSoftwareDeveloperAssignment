@@ -1,6 +1,4 @@
 ﻿using LgSoftwareDeveloperAssignment.BusinessLayer;
-using LgSoftwareDeveloperAssignment.ModelsLayer;
-
 namespace LgSoftwareDeveloperAssignment.DataLayer
 {
     public class UnitOfWork : IUnitOfWork

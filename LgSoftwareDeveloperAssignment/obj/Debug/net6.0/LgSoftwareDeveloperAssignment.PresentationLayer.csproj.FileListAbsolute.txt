@@ -397,3 +397,4 @@ D:\LgSoftwareDeveloperAssignment\LgSoftwareDeveloperAssignment\obj\Debug\net6.0\
 D:\LgSoftwareDeveloperAssignment\LgSoftwareDeveloperAssignment\obj\Debug\net6.0\LgSoftwareDeveloperAssignment.PresentationLayer.pdb
 D:\LgSoftwareDeveloperAssignment\LgSoftwareDeveloperAssignment\obj\Debug\net6.0\LgSoftwareDeveloperAssignment.PresentationLayer.genruntimeconfig.cache
 D:\LgSoftwareDeveloperAssignment\LgSoftwareDeveloperAssignment\obj\Debug\net6.0\ref\LgSoftwareDeveloperAssignment.PresentationLayer.dll
+D:\LgSoftwareDeveloperAssignment\LgSoftwareDeveloperAssignment\bin\Debug\net6.0\libman.json

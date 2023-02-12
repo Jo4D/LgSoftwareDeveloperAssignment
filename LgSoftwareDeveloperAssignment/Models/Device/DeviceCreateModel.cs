@@ -1,6 +1,4 @@
-﻿using LgSoftwareDeveloperAssignment.BusinessLayer;
-
-namespace LgSoftwareDeveloperAssignment.PresentationLayer
+﻿namespace LgSoftwareDeveloperAssignment.PresentationLayer
 {
     public class DeviceCreateModel
     {

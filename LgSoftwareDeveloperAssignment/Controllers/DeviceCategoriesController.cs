@@ -2,21 +2,20 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Dynamic;
 
-namespace LgSoftwareDeveloperAssignment.PresentationLayer.Controllers
+namespace LgSoftwareDeveloperAssignment.PresentationLayer
 {
     public class DeviceCategoriesController : Controller
     {
         private readonly IUnitOfWork uk;
-        private long MaxFileSize = 1048576;
         public DeviceCategoriesController(IUnitOfWork _uk)
         {
             uk = _uk;
         }
         [HttpGet]
-        public IActionResult Index()
+        public async Task <IActionResult> Index()
         {
-            var device = uk.DeviceCategories.GetAll();
-            return View(device);
+            var categories = await uk.DeviceCategories.GetAll();
+            return View(categories);
         }
         [HttpGet]
         public IActionResult GetById(int id)

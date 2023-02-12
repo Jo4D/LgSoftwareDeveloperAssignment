@@ -1,20 +1,19 @@
 using LgSoftwareDeveloperAssignment.BusinessLayer;
 using LgSoftwareDeveloperAssignment.DataLayer;
-using LgSoftwareDeveloperAssignment.ModelsLayer;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-options.UseSqlServer(connection, b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
+options.UseLazyLoadingProxies().UseSqlServer(connection, b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
+
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 builder.Services.AddMvc();
